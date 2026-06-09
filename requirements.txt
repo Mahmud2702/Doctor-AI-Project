@@ -1,0 +1,34 @@
+# ═══════════════════════════════════════════════════════════════
+# ClinicAssist AI — Multi-Agent Healthcare Assistant
+# requirements.txt
+# ═══════════════════════════════════════════════════════════════
+
+# ── Core Framework ──────────────────────────────────────────────
+streamlit>=1.35.0
+python-dotenv>=1.0.1
+
+# ── LangChain Ecosystem ─────────────────────────────────────────
+langchain>=0.2.14
+langchain-openai>=0.1.20
+langchain-community>=0.2.14
+langchain-chroma>=0.1.4
+langgraph>=0.2.0
+langsmith>=0.1.100
+
+# ── Vector Database ─────────────────────────────────────────────
+chromadb>=0.5.0
+
+# ── Document Processing ─────────────────────────────────────────
+pymupdf>=1.24.0          # Robust PDF text extraction (imported as `fitz` or `pymupdf`)
+Pillow>=10.0.0            # Image handling
+easyocr>=1.7.1            # Optional: OCR fallback (GPT-4o Vision is used as primary)
+
+# ── Internet Search ─────────────────────────────────────────────
+tavily-python>=0.3.0
+
+# ── OpenAI ─────────────────────────────────────────────────────
+openai>=1.35.0
+tiktoken>=0.7.0
+
+# ── Utilities ──────────────────────────────────────────────────
+requests>=2.31.0
