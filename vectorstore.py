@@ -7,6 +7,19 @@
 # no re-embedding unless you call rebuild_index().
 # ═══════════════════════════════════════════════════════════════════════════
 
+# ── Cloud compatibility shim ──────────────────────────────────────────────
+# Streamlit Community Cloud's Linux containers ship a system sqlite3 older
+# than Chroma requires (needs >= 3.35.0). pysqlite3-binary provides a newer
+# build; this swaps it in when present. Locally on Windows it's not
+# installed (see requirements.txt's platform marker), so this is a silent
+# no-op there — the built-in sqlite3 is already new enough on Windows.
+try:
+    __import__("pysqlite3")
+    import sys
+    sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+except ImportError:
+    pass
+
 import os
 import shutil
 from pathlib import Path
